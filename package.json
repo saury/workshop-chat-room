@@ -1,0 +1,17 @@
+{
+  "name": "workshop-chat",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node src",
+    "build": "",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md}\""
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "prettier": "^1.11.1"
+  }
+}

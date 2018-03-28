@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  app:
+    build: . # locate dockerfile
+    volumes:
+      - .:/opt/app # shared folder
+    ports:
+      - '8888:8888' # port mirror
