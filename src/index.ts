@@ -1,6 +1,8 @@
 import { server } from './app';
 import { logger } from './logger';
 
-server.listen(8888, () => {
-    logger.info('ther server is up');
+const { port = 8888 } = process.env;
+
+server.listen(port, () => {
+    logger.info(`the server is up ${port}`);
 });

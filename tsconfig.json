@@ -5,6 +5,7 @@
     //     "src/polyfill.ts",
     //     "src/helper.ts"
     // ],
+    "include": ["src/**/*"],
     "exclude": [
         "node_modules/**/*"
         // "**/*.d.ts"
@@ -22,6 +23,6 @@
         "strictNullChecks": true,
         "noImplicitAny": false,
         "outDir": "dist",
-        "rootDir": "."
+        "rootDir": "src"
     }
 }

@@ -1,13 +1,18 @@
 version: '3.4'
 
 services:
-  app:
-    build: . # locate dockerfile
-    volumes:
-      - .:/opt/app # shared folder
-      - yarn-cache:/opt/.yarn-cache # cache
-    ports:
-      - '8888:8888' # port mirror
+    app:
+        build: . # locate dockerfile
+        volumes:
+        - .:/opt/app # shared folder
+        - yarn-cache:/opt/.yarn-cache # cache
+        ports:
+        - '8868:8868' # port mirror
+        environment:
+            PORT: '8868'
+
+    dynamodb:
+        image: deangiberson/aws-dynamodb-local
 
 volumes:
     yarn-cache:

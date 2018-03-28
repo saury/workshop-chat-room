@@ -6,4 +6,10 @@ server.get('/health', (req, res) => {
     return res.status(200).send('All is ok 4434');
 });
 
+server.get('/messages', (req, res) => {
+    return res.status(200).json({
+        message: 'All is ok 4434',
+    });
+});
+
 export { server };
