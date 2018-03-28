@@ -7,6 +7,8 @@ const server = express();
 
 mountHealth(server);
 
+// todo: mount msgs
+
 server.get('/messages', async (req, res) => {
     await setup();
     const data = await db.doc.scan({ TableName: tables.messages }).promise();
