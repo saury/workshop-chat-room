@@ -12,18 +12,18 @@ All work with docker, else just find npm script in `package.json`
 
 **BUILD**
 
-docker-compose build
+`> docker-compose build`
 
 **RUN**
 
-docker-compose up
+`> docker-compose up`
 
 ### Production Environment
 
 **BUILD**
 
-docker build -t chatting-room -f production.Dockerfile .
+`> docker build -t chatting-room -f production.Dockerfile .`
 
 **RUN**
 
-docker run --rm -p 8080:8080 chatting-room
+`> docker run --rm -p 8080:8080 chatting-room`
