@@ -5,5 +5,9 @@ services:
     build: . # locate dockerfile
     volumes:
       - .:/opt/app # shared folder
+      - yarn-cache:/opt/.yarn-cache # cache
     ports:
       - '8888:8888' # port mirror
+
+volumes:
+    yarn-cache:
