@@ -13,5 +13,5 @@ test('dummy', async () => {
     }
 
     expect(response.status).toBe(200);
-    expect(response.text).toBe('All is ok 4434');
+    expect(response.text).toBe('All is well');
 });

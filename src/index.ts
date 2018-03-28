@@ -1,5 +1,5 @@
 import { server } from './app';
-import { logger } from './logger';
+import { logger } from './modules/core';
 
 const { port = 8888 } = process.env;
 
