@@ -7,9 +7,9 @@ services:
         - .:/opt/app # shared folder
         - yarn-cache:/opt/.yarn-cache # cache
         ports:
-        - '8868:8868' # port mirror
+        - '8888:8888' # port mirror
         environment:
-            PORT: '8868'
+            PORT: '8888'
 
     dynamodb:
         image: deangiberson/aws-dynamodb-local
