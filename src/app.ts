@@ -6,6 +6,7 @@ import { setup as dbSetup } from 'modules/db';
 
 import { mount as mountHealth } from 'modules/db/health';
 import { mount as mountMsgs } from 'modules/db/messages';
+import { mount as mountUsers } from 'modules/db/users';
 
 export const appSetup = async () => {
     const server = express();
@@ -14,7 +15,9 @@ export const appSetup = async () => {
     await dbSetup();
 
     mountHealth(server);
+    mountUsers(server);
 
+    // authenize
     authSetup(server);
     mountMsgs(server);
 
