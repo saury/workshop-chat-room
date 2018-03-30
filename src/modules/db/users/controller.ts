@@ -12,7 +12,16 @@ export const controller = createController(async (req, res) => {
     // const data = await db.doc.scan({ TableName: tables.messages }).promise();
     if (!isSignUpRequest(req.body)) {
         logger.debug(req.body);
-        res.status(BAD_REQUEST).send('Bad Request');
+        return res.status(BAD_REQUEST).send('Bad Request');
+    }
+
+    // verify if user exists
+    const { Items: users } = await db.doc.scan({ TableName: tables.users }).promise();
+    const findUser = users!.find((_user) => {
+        return _user.username === req.body.username;
+    });
+    if (findUser) {
+        return res.status(BAD_REQUEST).send('exist user');
     }
 
     const user = { id: shorid.generate(), ...req.body };
