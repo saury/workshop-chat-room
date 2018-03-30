@@ -8,6 +8,8 @@ import { createController, logger } from 'modules/core';
 
 import { isSignUpRequest } from './isSignUpRequest';
 
+import { allFromDb } from './allFromDb';
+
 export const controller = createController(async (req, res) => {
     // const data = await db.doc.scan({ TableName: tables.messages }).promise();
     if (!isSignUpRequest(req.body)) {
@@ -16,7 +18,7 @@ export const controller = createController(async (req, res) => {
     }
 
     // verify if user exists
-    const { Items: users } = await db.doc.scan({ TableName: tables.users }).promise();
+    const users = await allFromDb();
     const findUser = users!.find((_user) => {
         return _user.username === req.body.username;
     });
