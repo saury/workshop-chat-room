@@ -2,6 +2,8 @@ import { Express } from 'express';
 import * as passport from 'passport';
 import { BasicStrategy } from 'passport-http';
 
+import { authenticate } from './authenticate';
+
 export const setup = (server: Express) => {
     server.use(passport.initialize());
 
@@ -14,4 +16,7 @@ export const setup = (server: Express) => {
             }
         }),
     );
+
+    // auth globally
+    server.use(authenticate());
 };
