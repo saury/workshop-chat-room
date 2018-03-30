@@ -1,18 +1,15 @@
 import * as express from 'express';
 
-import { db, setup, tables } from 'modules/db';
+import { setup } from 'modules/db';
 import { mount as mountHealth } from 'modules/db/health';
+import { mount as mountMsgs } from 'modules/db/messages';
 
-const server = express();
-
-mountHealth(server);
-
-// todo: mount msgs
-
-server.get('/messages', async (req, res) => {
+export const appSetup = async () => {
+    const server = express();
     await setup();
-    const data = await db.doc.scan({ TableName: tables.messages }).promise();
-    res.status(200).json(data);
-});
 
-export { server };
+    mountHealth(server);
+    mountMsgs(server);
+
+    return server;
+};

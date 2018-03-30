@@ -1,6 +1,6 @@
 import * as request from 'supertest';
 
-import { server } from 'app';
+import { appSetup } from 'app';
 
 import { route } from './route';
 
@@ -9,7 +9,7 @@ test('dummy', async () => {
 
     let response;
     try {
-        response = await request(server).get(route);
+        response = await request(await appSetup()).get(route);
     } catch (error) {
         throw error;
     }
