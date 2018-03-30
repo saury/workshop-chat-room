@@ -21,7 +21,7 @@ export const setup = (server: Express) => {
                 return done(null, false);
             }
 
-            return done(null, {});
+            return done(null, findUser);
         }),
     );
 

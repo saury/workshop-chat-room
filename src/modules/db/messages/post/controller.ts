@@ -15,7 +15,7 @@ export const controller = createController(async (req, res) => {
         return res.status(BAD_REQUEST).send('Bad Request');
     }
 
-    const msg = createMessage(req.body);
+    const msg = createMessage(req.body, req.user!.id);
     await db.doc
         .put({
             Item: serializable(msg),
