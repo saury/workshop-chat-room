@@ -1,8 +1,8 @@
 import { Express } from 'express';
+import { db, tables } from 'modules/db';
+import { allFromDb } from 'modules/db/users';
 import * as passport from 'passport';
 import { BasicStrategy } from 'passport-http';
-
-import { db, tables } from 'modules/db';
 
 import { authenticate } from './authenticate';
 
@@ -11,7 +11,7 @@ export const setup = (server: Express) => {
 
     passport.use(
         new BasicStrategy(async (username, password, done) => {
-            const { Items: users } = await db.doc.scan({ TableName: tables.users }).promise();
+            const users = await allFromDb();
 
             const findUser = users!.find((_user) => {
                 return _user.username === username;
