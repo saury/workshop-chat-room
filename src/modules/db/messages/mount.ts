@@ -1,7 +1,5 @@
 import { Express } from 'express';
 
-import { authenticate } from 'modules/authentication';
-
 import { controller as getController } from './get';
 import { controller as postController } from './post';
 import { route } from './route';

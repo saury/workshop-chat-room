@@ -11,11 +11,11 @@ export const appSetup = async () => {
     const server = express();
     server.use(bodyParser.json());
 
-    authSetup(server);
-
     await dbSetup();
 
     mountHealth(server);
+
+    authSetup(server);
     mountMsgs(server);
 
     return server;
