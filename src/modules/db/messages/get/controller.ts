@@ -1,7 +1,7 @@
 import { OK } from 'http-status-codes';
 
 import { createController } from 'modules/core';
-import { db, setup, tables } from 'modules/db';
+import { db, tables } from 'modules/db';
 
 export const controller = createController(async (req, res) => {
     const data = await db.doc.scan({ TableName: tables.messages }).promise();

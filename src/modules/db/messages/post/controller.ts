@@ -1,9 +1,8 @@
 import { BAD_REQUEST, OK } from 'http-status-codes';
 import { createController, logger } from 'modules/core';
-import { db, setup, tables } from 'modules/db';
+import { db, tables } from 'modules/db';
 
 import { isMessageRequest } from './isMessageRequest';
-import { MsgRequest } from './types';
 
 export const controller = createController(async (req, res) => {
     // return 400 if post info is not valid
