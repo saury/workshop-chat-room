@@ -21,7 +21,14 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test
+      - run:
+            name: Test
+            command: yarn test --ci --testResultsProcessor="jest-junit"
+            environment:
+                JEST_JUNIT_OUTPUT: "test-result/Jest/js-test-results.xml"
+
+      - store_test_results:
+        ath: test-results
 
       - run:
           name: Build
