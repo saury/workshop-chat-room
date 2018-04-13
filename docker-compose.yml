@@ -9,6 +9,7 @@ services:
         ports:
         - '8888:8888' # port mirror
         environment:
+            DB_TABLE_PREFIX: '' # options for qa/staging/production
             PORT: '8888'
 
     dynamodb:
