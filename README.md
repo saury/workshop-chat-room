@@ -1,5 +1,7 @@
 # WORKSHOP - CHAT ROOM
 
+[![CircleCI](https://circleci.com/gh/saury/workshop-chat-room-server.svg?style=svg)](https://circleci.com/gh/saury/workshop-chat-room-server)
+
 > Building a whole app from scratch with a NodeJS API written in TypeScript and a ReactJS front-end, also written in
 > TypeScript. Will deploy both of them to AWS ECS and will automate builds and deployments using Jenkins, Docker,
 > Groovy, Bash and NodeJS.
