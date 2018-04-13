@@ -1,2 +1,2 @@
-export { Message } from './message';
+export { Message } from './Message';
 export { serializable } from './serialize';
