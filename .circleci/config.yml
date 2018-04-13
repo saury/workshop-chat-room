@@ -22,6 +22,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Install AWS CLI
+          working_directory: ~
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get -y -qq install python3.4-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            sudo python3.4 get-pip.py
+            sudo pip install awscli --upgrade
+
+      - run:
           name: Test
           command: yarn test --ci --testResultsProcessor="jest-junit"
           environment:
