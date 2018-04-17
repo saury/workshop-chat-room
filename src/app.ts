@@ -1,4 +1,5 @@
 import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
 import * as express from 'express';
 
 import { setup as authSetup } from 'modules/authentication';
@@ -10,6 +11,7 @@ import { mount as mountUsers } from 'modules/db/users';
 
 export const appSetup = async () => {
     const server = express();
+    server.use(cors());
     server.use(bodyParser.json());
 
     await dbSetup();

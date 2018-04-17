@@ -1,6 +1,6 @@
-import { SignUpRequest } from './types';
+import { SignInRequest } from './SignInRequest';
 
-export const isSignUpRequest = (input: any): input is SignUpRequest => {
+export const isSignInRequest = (input: any): input is SignInRequest => {
     // validate the request
     if (typeof input !== 'object') return false;
     if (typeof input.username !== 'string') return false;

@@ -1,14 +1,11 @@
+import { BAD_REQUEST, OK } from 'http-status-codes';
+import { createController, logger } from 'modules/core';
+import { db, tables } from 'modules/db';
 import * as shorid from 'shortid';
 
-import { BAD_REQUEST, OK } from 'http-status-codes';
-
-import { db, tables } from 'modules/db';
-
-import { createController, logger } from 'modules/core';
+import { allFromDb } from '../allFromDb';
 
 import { isSignUpRequest } from './isSignUpRequest';
-
-import { allFromDb } from './allFromDb';
 
 export const controller = createController(async (req, res) => {
     // const data = await db.doc.scan({ TableName: tables.messages }).promise();
